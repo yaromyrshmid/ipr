@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 import Layout from "../components/Layout"
 import Banner from "../components/Banner"
@@ -10,9 +10,9 @@ const error = () => {
     <Layout>
       <header className={styles.error}>
         <Banner title="Сторінки не знайдено">
-          <Link to="/" className="btn-white">
+          <AniLink fade to="/" className="btn-white">
             Повернутись на головну
-          </Link>
+          </AniLink>
         </Banner>
       </header>
     </Layout>
