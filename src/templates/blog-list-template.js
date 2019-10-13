@@ -1,0 +1,91 @@
+import React from "react"
+import { graphql } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+
+import Layout from "../components/Layout"
+import styles from "../css/blog.module.css"
+import BlogCard from "../components/Blog/BlogCard"
+import Title from "../components/Title"
+import SEO from "../components/SEO"
+
+const BlogListTemplate = props => {
+  const { currentPage, numPages } = props.pageContext
+  const { data } = props
+  return (
+    <Layout>
+      <SEO title="Блог" />
+      <section className={styles.blog}>
+        <Title title="Блог" />
+        <div className={styles.center}>
+          {data.posts.edges.map(({ node }) => {
+            return <BlogCard key={node.id} blog={node} />
+          })}
+        </div>
+        <section className={styles.links}>
+          {currentPage !== 1 && (
+            <AniLink
+              fade
+              to={
+                currentPage - 1 === 1 ? "/blogs" : `/blogs/${currentPage - 1}`
+              }
+              className={styles.link}
+            >
+              Попередня
+            </AniLink>
+          )}
+          {Array.from({ length: numPages }, (_, i) => {
+            return (
+              <AniLink
+                key={i}
+                fade
+                to={`/blogs/${i === 0 ? "" : i + 1}`}
+                className={
+                  i + 1 === currentPage
+                    ? `${styles.link} ${styles.active}`
+                    : styles.link
+                }
+              >
+                {i + 1}
+              </AniLink>
+            )
+          })}
+          {currentPage !== numPages && (
+            <AniLink
+              fade
+              to={`/blogs/${currentPage + 1}`}
+              className={styles.link}
+            >
+              Наступна
+            </AniLink>
+          )}
+        </section>
+      </section>
+    </Layout>
+  )
+}
+
+export const query = graphql`
+  query getPosts($skip: Int!, $limit: Int!) {
+    posts: allContentfulBlogs(
+      skip: $skip
+      limit: $limit
+      sort: { fields: published, order: DESC }
+    ) {
+      edges {
+        node {
+          slug
+          title
+          id: contentful_id
+          published(formatString: "MMMM Do, YYYY")
+          image {
+            fluid {
+              ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+export default BlogListTemplate

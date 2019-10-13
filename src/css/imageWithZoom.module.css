@@ -1,0 +1,33 @@
+.image {
+  box-shadow: var(--lightShadow);
+}
+
+.modal-image-container {
+  width: 80vw;
+}
+
+.modal-image-container .image {
+  box-shadow: none;
+}
+
+.modalstyle {
+  max-width: 1200;
+}
+
+@media (min-width: 576px) {
+  .modal-image-container {
+    width: 85vw;
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-image-container {
+    width: 85vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal-image-container {
+    width: 1140px;
+  }
+}

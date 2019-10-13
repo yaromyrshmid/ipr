@@ -1,13 +1,15 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Img from "gatsby-image"
 
 import Title from "../Title"
 import styles from "../../css/about.module.css"
+import { Container, Row, Col } from "react-bootstrap"
 
 const getAboutImage = graphql`
   query aboutImage {
-    aboutImage: file(relativePath: { eq: "defaultBcg.jpeg" }) {
+    aboutImage: file(relativePath: { eq: "team.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 600) {
           ...GatsbyImageSharpFluid_tracedSVG
@@ -22,30 +24,40 @@ const About = () => {
 
   return (
     <section className={styles.about}>
-      <Title title="Про" subtitle="нас" />
-      <div className={styles.aboutCenter}>
-        <article className={styles.aboutImg}>
-          <div className={styles.imgContainer}>
-            <Img
-              fluid={aboutImage.childImageSharp.fluid}
-              alt="about us image"
-            />
-          </div>
-        </article>
-        <article className={styles.aboutInfo}>
-          <h4>Більше про нас</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, eos!
-          </p>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Consequuntur accusamus deleniti assumenda.
-          </p>
-          <button type="button" className="btn-primary">
-            Дізнатись більше
-          </button>
-        </article>
-      </div>
+      <Title title="Хто" subtitle="ми?" />
+      <Container className={styles.aboutContent}>
+        <Row>
+          <Col md={6}>
+            <article className={styles.aboutImg}>
+              <div className={styles.imgContainer}>
+                <Img
+                  fluid={aboutImage.childImageSharp.fluid}
+                  alt="about us image"
+                />
+              </div>
+            </article>
+          </Col>
+          <Col md={6}>
+            <article className={styles.aboutInfo}>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,
+                eos!
+              </p>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Consequuntur accusamus deleniti assumenda.
+              </p>
+              <AniLink
+                fade
+                to="/aboutus"
+                className={`btn-primary ${styles.btnPrimary}`}
+              >
+                Дізнатись більше
+              </AniLink>
+            </article>
+          </Col>
+        </Row>
+      </Container>
     </section>
   )
 }

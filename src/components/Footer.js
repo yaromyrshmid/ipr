@@ -34,6 +34,16 @@ const Footer = () => {
       <div className={styles.copyright}>
         &copy; ЛКП "Інститут просторового розвитку" {new Date().getFullYear()}.
         Усі права захищено.
+        <br />
+        Розробник:
+        <a
+          href="https://www.linkedin.com/in/yaromyr-shmid-2a468398/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {" "}
+          Яромир Шмід
+        </a>
       </div>
     </footer>
   )

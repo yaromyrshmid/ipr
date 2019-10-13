@@ -14,12 +14,13 @@ const Title = ({ title, subtitle, className }) => {
 
 export default styled(Title)`
   text-transform: uppercase;
-  font-size: 2.3rem;
   margin-bottom: 2rem;
   h4 {
+    font-weight: bold;
     text-align: center;
     letter-spacing: 4px;
     color: var(--primaryColor);
+    font-size: 2.3rem;
   }
   .title {
     color: var(--mainBlack);

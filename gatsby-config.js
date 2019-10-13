@@ -6,11 +6,10 @@ module.exports = {
   siteMetadata: {
     title: "Інститут просторового розвитку",
     description: "Lorem ipsum dolor sit amet.",
-    author: "@jonhdoe",
-    data: {
-      age: 24,
-      name: "Petro",
-    },
+    author: "yaromyr.shmid",
+    twitterUsername: "@johndoe",
+    image: "/defaultBcg.jpeg",
+    siteUrl: "https://ipr-gatsby.netlify.com",
   },
   plugins: [
     "gatsby-plugin-styled-components",
@@ -29,8 +28,19 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://ipr-gatsby.netlify.com",
+        sitemap: "https://ipr-gatsby.netlify.com/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-transition-link`,
+    `gatsby-plugin-playground`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
   ],
 }

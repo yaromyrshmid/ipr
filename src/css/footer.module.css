@@ -32,3 +32,6 @@
   letter-spacing: var(--mainSpacing);
   line-height: 2;
 }
+.copyright a {
+  color: var(--primaryColor);
+}
