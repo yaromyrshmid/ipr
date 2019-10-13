@@ -25,22 +25,22 @@ const Blog = ({ data }) => {
           </div>
         )
       },
-      "embedded-entry-block": node => {
-        console.log(node.data.target.fields)
+      // "embedded-entry-block": node => {
+      //   console.log(node.data.target.fields)
 
-        const { title, image, text } = node.data.target.fields
-        return (
-          <div>
-            <h1>other post: {title["en-US"]}</h1>
-            <img
-              width="400"
-              src={image["en-US"].fields.file["en-US"].url}
-              alt="other post image"
-            />
-            {documentToReactComponents(text["en-US"])}
-          </div>
-        )
-      },
+      //   const { title, image, text } = node.data.target.fields
+      //   return (
+      //     <div>
+      //       <h1>other post: {title["en-US"]}</h1>
+      //       <img
+      //         width="400"
+      //         src={image["en-US"].fields.file["en-US"].url}
+      //         alt="other post image"
+      //       />
+      //       {documentToReactComponents(text["en-US"])}
+      //     </div>
+      //   )
+      // },
     },
   }
 

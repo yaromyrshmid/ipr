@@ -97,6 +97,13 @@ const Template = ({ data }) => {
             })}
           </Row>
         )}
+
+        <Row>
+          <Col xs={12}>
+            <h3>Схожі проекти:</h3>
+          </Col>
+        </Row>
+
         <AniLink fade to="/projects" className="btn-primary">
           Назад до проектів
         </AniLink>
