@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import { Container, Row } from "react-bootstrap"
 
 import BlogCard from "./BlogCard"
 import Title from "../Title"
@@ -7,14 +8,14 @@ import styles from "../../css/blog.module.css"
 
 const getPosts = graphql`
   query {
-    posts: allContentfulBlogs(sort: { fields: published, order: DESC }) {
+    posts: allContentfulPosts(sort: { fields: createdAt, order: DESC }) {
       edges {
         node {
-          published(formatString: "MMMM Do, YYYY")
-          createdAt
-          title
+          createdAt(formatString: "DD/MM/YYYY")
           slug
-          id: contentful_id
+          name
+          author
+          contentful_id
           image {
             fluid {
               ...GatsbyContentfulFluid_tracedSVG
@@ -32,11 +33,14 @@ const BlogList = () => {
   return (
     <section className={styles.blog}>
       <Title title="Блог" />
-      <div className={styles.center}>
-        {posts.edges.map(({ node }) => {
-          return <BlogCard key={node.id} blog={node} />
-        })}
-      </div>
+      <Container className={styles.center}>
+        <Row>
+          {posts.edges.map(({ node }) => {
+            return <BlogCard key={node.contentful_id} post={node} />
+          })}
+        </Row>
+      </Container>
+      <div className={styles.center}></div>
     </section>
   )
 }

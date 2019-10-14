@@ -1,7 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Image from "gatsby-image"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { Container, Row, Col } from "react-bootstrap"
 
 import Layout from "../components/Layout"
 import styles from "../css/single-blog.module.css"
@@ -9,20 +11,23 @@ import SEO from "../components/SEO"
 
 const Blog = ({ data }) => {
   const {
-    title,
-    published,
-    text: { json },
+    name,
+    createdAt,
+    author,
+    image,
+    post: { json },
   } = data.post
 
   const options = {
     renderNode: {
       "embedded-asset-block": node => {
         return (
-          <div className="rich">
-            <h3>this is image</h3>
-            <img width="400" src={node.data.target.fields.file["en-US"].url} />
-            <p>image by john</p>
-          </div>
+          <img
+            width="100%"
+            src={node.data.target.fields.file["en-US"].url}
+            className={styles.image}
+            alt="blog image"
+          />
         )
       },
       // "embedded-entry-block": node => {
@@ -46,29 +51,58 @@ const Blog = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={title} />
-      <section className={styles.blog}>
-        <div className={styles.center}>
-          <h1>{title}</h1>
-          <h4>{published}</h4>
-          <article className={styles.post}>
-            {documentToReactComponents(json, options)}
-          </article>
-          <AniLink fade to="/blog" className="btn-primary">
-            Усі пости
-          </AniLink>
-        </div>
-      </section>
+      <SEO title={name} />
+      <Container className={styles.template}>
+        <Row className={styles.topRow}>
+          <Col lg={7}>
+            <div className={styles.imgWrapper}>
+              <div className={styles.imgContainer}>
+                <Image
+                  fluid={image.fluid}
+                  alt="main project image"
+                  className={styles.image}
+                />
+              </div>
+            </div>
+          </Col>
+          <Col lg={5} className={styles.titleWrapper}>
+            <div>
+              <h3>{name}</h3>
+              <br />
+              <h6>Автор: {author}</h6>
+              <br />
+              <h5 className={styles.date}>{createdAt}</h5>
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col>{documentToReactComponents(json, options)}</Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            <h3>Схожі пости:</h3>
+          </Col>
+        </Row>
+        <AniLink fade to="/blog" className="btn-primary">
+          Усі пости
+        </AniLink>
+      </Container>
     </Layout>
   )
 }
 
 export const query = graphql`
   query getPost($slug: String!) {
-    post: contentfulBlogs(slug: { eq: $slug }) {
-      title
-      published(formatString: "MMMM Do, YYYY")
-      text {
+    post: contentfulPosts(slug: { eq: $slug }) {
+      createdAt(formatString: "DD/MM/YYYY")
+      name
+      author
+      image {
+        fluid {
+          ...GatsbyContentfulFluid_tracedSVG
+        }
+      }
+      post {
         json
       }
     }

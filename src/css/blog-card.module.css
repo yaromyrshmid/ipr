@@ -1,8 +1,9 @@
-.blog {
+.post {
   box-shadow: var(--lightShadow);
   transition: var(--mainTransition);
+  margin-top: 1.5rem;
 }
-.blog:hover {
+.post:hover {
   box-shadow: var(--darkShadow);
 }
 
@@ -10,6 +11,8 @@
   position: relative;
   background: var(--primaryColor);
   transition: var(--mainTransition);
+  max-height: 306px;
+  overflow: hidden;
 }
 .img {
   transition: var(--mainTransition);
@@ -43,18 +46,63 @@
 
 .footer {
   padding: 1rem;
-  text-align: left;
+  min-height: 5rem;
 }
-.footer h4 {
-  text-transform: capitalize;
+.footer h4,
+h6 {
   margin-bottom: 0;
 }
-.date {
+
+.footer h4 {
+  letter-spacing: 1.3px;
+  overflow: hidden;
+}
+
+.footer h6 {
+  letter-spacing: 1.3px;
+  color: var(--darkGrey);
+  text-transform: uppercase;
+  min-height: 2.3rem;
+  overflow: hidden;
+}
+
+.label {
   position: absolute;
-  left: 0;
-  top: 75%;
-  background: var(--primaryColor);
-  padding: 0.3rem 0.5rem;
-  border-top-right-radius: 1rem;
-  border-bottom-right-radius: 1rem;
+  top: 70px;
+  left: -5px;
+  z-index: 200;
+}
+
+.label-text {
+  background-color: var(--primaryColor);
+  color: var(--mainWhite);
+  padding: 1px 10px 4px 10px;
+}
+
+@media (min-width: 576px) {
+  .img-container {
+    height: 286.875px;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 768px) {
+  .img-container {
+    height: 185.625px;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 992px) {
+  .img-container {
+    height: 253.125px;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 1200px) {
+  .img-container {
+    height: 303.75px;
+    overflow: hidden;
+  }
 }

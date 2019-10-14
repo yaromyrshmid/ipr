@@ -6,18 +6,18 @@ import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import StyledHero from "../components/StyledHero"
 import TeamMember from "../components/AboutUs/TeamMember"
+import Document from "../components/AboutUs/Document"
 import styles from "../css/aboutus.module.css"
 
 const aboutus = ({ data }) => {
   const [boss, ...teamMembers] = data.teamMembers.edges
-  console.log(boss.node)
 
   return (
     <Layout>
       <SEO title="Про нас" />
       <StyledHero img={data.hero.childImageSharp.fluid} />
       <Container className={styles.template}>
-        <Row>
+        <Row className={styles.aboutCompany}>
           <Col md={6}>
             <div className={styles.imgWrapper}>
               <div className={styles.imgContainer}>
@@ -47,10 +47,35 @@ const aboutus = ({ data }) => {
           <Col xs={12}>
             <h3>Команда:</h3>
           </Col>
-          <Col xs={12}>
+        </Row>
+        <Row>
+          <Col xs={12} lg={6}>
             <TeamMember node={boss.node} />
           </Col>
-          <Col>Team members</Col>
+        </Row>
+        <Row>
+          {teamMembers.map(item => {
+            return (
+              <Col xs={12} lg={6} key={item.node.contentful_id}>
+                <TeamMember node={item.node} />
+              </Col>
+            )
+          })}
+        </Row>
+        <Row>
+          <Col xs={12}>
+            <h3>Нормативні документи:</h3>
+          </Col>
+        </Row>
+        <Row>
+          {data.documents.edges.map(item => {
+            console.log(item)
+            return (
+              <Col xs={12} sm={6} lg={4} key={item.node.contentful_id}>
+                <Document node={item.node} />
+              </Col>
+            )
+          })}
         </Row>
       </Container>
     </Layout>
@@ -75,7 +100,7 @@ export const query = graphql`
         }
       }
     }
-    teamMembers: allContentfulTeam {
+    teamMembers: allContentfulTeam(sort: { fields: createdAt, order: ASC }) {
       edges {
         node {
           name
@@ -86,6 +111,19 @@ export const query = graphql`
           image {
             fluid {
               ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+        }
+      }
+    }
+    documents: allContentfulDocuments(sort: { fields: createdAt, order: ASC }) {
+      edges {
+        node {
+          contentful_id
+          name
+          document {
+            file {
+              url
             }
           }
         }

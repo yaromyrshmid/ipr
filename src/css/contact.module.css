@@ -1,21 +1,74 @@
 .contact {
-  padding: 4rem 0;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
-.center {
-  width: 80vw;
-  margin: 0 auto;
+
+.map-frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
-@media screen and (min-width: 992px) {
-  .center {
-    width: 50vw;
-    margin: 0 auto;
+
+.map {
+  width: 80%;
+  height: 300px;
+  margin: auto;
+  border: none;
+  box-shadow: var(--lightShadow);
+}
+
+.address-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 2rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  .map {
+    width: 80%;
+    height: 300px;
   }
 }
-label {
-  text-transform: capitalize;
-  display: block;
-  margin-bottom: 0.5rem;
+
+@media screen and (min-width: 992px) {
+  .map {
+    width: 530px;
+    height: 400px;
+  }
+
+  .top-row {
+    margin-bottom: 2rem;
+  }
+
+  .map-wrapper {
+    position: relative;
+  }
+
+  .map-frame::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--primaryColor);
+    box-sizing: border-box;
+    top: -16px;
+    left: -16px;
+    z-index: -1;
+  }
+
+  .address-wrapper {
+    flex-direction: column;
+  }
 }
+
+@media screen and (min-width: 1200px) {
+  .map {
+    width: 635px;
+    height: 455px;
+  }
+}
+
 .formControl,
 .submit {
   width: 100%;
@@ -27,10 +80,12 @@ label {
   font: inherit;
 }
 .submit {
+  width: 60%;
+  margin-left: 20%;
   background-color: var(--primaryColor);
   border-color: var(--primaryColor);
   text-transform: uppercase;
-  color: var(--mainBlack);
+  color: var(--mainWhite);
   transition: var(--mainTransition);
   cursor: pointer;
 }

@@ -11,7 +11,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      posts: allContentfulBlogs {
+      posts: allContentfulPosts {
         edges {
           node {
             slug

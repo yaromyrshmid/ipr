@@ -30,6 +30,10 @@
 }
 
 @media (min-width: 992px) {
+  .about-company {
+    margin-bottom: 2rem;
+  }
+
   .img-wrapper {
     position: relative;
   }

@@ -12,6 +12,8 @@
   position: relative;
   background: var(--primaryColor);
   transition: var(--mainTransition);
+  max-height: 306px;
+  overflow: hidden;
 }
 .img {
   transition: var(--mainTransition);
@@ -88,12 +90,41 @@
 
 .label {
   position: absolute;
-  bottom: 20px;
-  right: -10px;
+  top: 70px;
+  right: -5px;
+  z-index: 200;
 }
 
 .label-text {
   background-color: var(--primaryColor);
   color: var(--mainWhite);
   padding: 1px 10px 4px 10px;
+}
+
+@media (min-width: 576px) {
+  .img-container {
+    height: 286.875px;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 768px) {
+  .img-container {
+    height: 185.625px;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 992px) {
+  .img-container {
+    height: 253.125px;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 1200px) {
+  .img-container {
+    height: 303.75px;
+    overflow: hidden;
+  }
 }

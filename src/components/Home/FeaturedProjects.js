@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-import { Container, Row } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
 
 import Title from "../Title"
 import Project from "../Projects/Project"
@@ -11,6 +11,7 @@ const getProjects = graphql`
   query {
     featuredProjects: allContentfulProjects(
       filter: { featured: { eq: true } }
+      sort: { fields: createdAt, order: ASC }
     ) {
       edges {
         node {
@@ -43,10 +44,14 @@ const FeaturedProjects = () => {
             return <Project key={node.contentful_id} project={node} />
           })}
         </Row>
+        <Row>
+          <Col className={styles.centerBtn}>
+            <AniLink fade to="/projects" className="btn-primary">
+              Усі проекти
+            </AniLink>
+          </Col>
+        </Row>
       </Container>
-      <AniLink fade to="/projects" className="btn-primary">
-        Усі проекти
-      </AniLink>
     </section>
   )
 }

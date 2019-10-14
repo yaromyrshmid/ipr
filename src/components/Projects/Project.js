@@ -32,6 +32,11 @@ const Project = ({ project }) => {
     <Col md={6}>
       <AniLink fade to={`/projects/${slug}`}>
         <article className={styles.project}>
+          {implemented && (
+            <span className={styles.label}>
+              <span className={styles.labelText}>реалізовано</span>
+            </span>
+          )}
           <div className={styles.imgContainer}>
             <Image
               fluid={mainImage}
@@ -39,11 +44,6 @@ const Project = ({ project }) => {
               alt="single project"
             />
             <div className={styles.link}>Більше</div>
-            {implemented && (
-              <span className={styles.label}>
-                <span className={styles.labelText}>реалізовано</span>
-              </span>
-            )}
           </div>
           <div className={styles.footer}>
             <Row>
