@@ -49,8 +49,7 @@ a:hover {
 }
 .defaultHero {
   min-height: calc(100vh - 92px);
-  background: linear-gradient(rgba(3, 122, 214, 0.7), rgba(0, 0, 0, 0.7)),
-    url("../images/defaultBcg.jpeg") center/cover no-repeat;
+  background: linear-gradient(rgba(3, 122, 214, 0.7), rgba(0, 0, 0, 0.7));
   display: flex;
   justify-content: center;
   align-items: center;

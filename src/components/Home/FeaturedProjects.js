@@ -23,7 +23,7 @@ const getProjects = graphql`
           implemented
           images {
             fluid(maxWidth: 600) {
-              src
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }
