@@ -47,6 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // const numPages = Math.ceil(posts.length / postsPerPage)
 
   // Array.from({ length: numPages }).forEach((_, i) => {
+
   //   createPage({
   //     path: i === 0 ? "/blogs" : `/blogs/${i + 1}`,
   //     component: path.resolve("./src/templates/blog-list-template.js"),
