@@ -99,7 +99,7 @@ export const query = graphql`
       author
       image {
         fluid {
-          ...GatsbyContentfulFluid_tracedSVG
+          ...GatsbyContentfulFluid
         }
       }
       post {
