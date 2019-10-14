@@ -26,7 +26,7 @@ const Blog = ({ data }) => {
             width="100%"
             src={node.data.target.fields.file["en-US"].url}
             className={styles.image}
-            alt="blog image"
+            alt="blog"
           />
         )
       },

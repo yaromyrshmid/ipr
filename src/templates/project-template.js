@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
 import { FaMapMarkerAlt } from "react-icons/fa"
@@ -31,7 +31,7 @@ const Template = ({ data }) => {
             width="100%"
             src={node.data.target.fields.file["en-US"].url}
             className={styles.image}
-            alt="project image"
+            alt="project"
           />
         )
       },

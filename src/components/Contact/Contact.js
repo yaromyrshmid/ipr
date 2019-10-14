@@ -15,6 +15,7 @@ const Contact = () => {
             <div className={styles.mapWrapper}>
               <div className={styles.mapFrame}>
                 <iframe
+                  title="map"
                   className={styles.map}
                   id="gmap_canvas"
                   src={
