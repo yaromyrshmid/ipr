@@ -9,7 +9,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import Layout from "../components/Layout"
 import ImageWithZoom from "../components/ImageWithZoom"
 import styles from "../css/template.module.css"
-
+import Project from "../components/Projects/OtherProject"
 import SEO from "../components/SEO"
 
 const Template = ({ data }) => {
@@ -19,6 +19,7 @@ const Template = ({ data }) => {
     author,
     description: { json },
     images,
+    otherProjects,
   } = data.project
 
   const [mainImage, ...projectImages] = images
@@ -35,24 +36,36 @@ const Template = ({ data }) => {
           />
         )
       },
-      // "embedded-entry-block": node => {
-      //   console.log(node.data.target.fields)
-
-      //   const { title, image, text } = node.data.target.fields
-      //   return (
-      //     <div>
-      //       <h1>other post: {title["en-US"]}</h1>
-      //       <img
-      //         width="400"
-      //         src={image["en-US"].fields.file["en-US"].url}
-      //         alt="other post image"
-      //       />
-      //       {documentToReactComponents(text["en-US"])}
-      //     </div>
-      //   )
-      // },
     },
   }
+
+  // const optionsOtherProjects = {
+  //   renderNode: {
+  //     "embedded-entry-block": node => {
+  //       console.log(node.data.target.fields)
+
+  //       const {
+  //         name,
+  //         slug,
+  //         city,
+  //         author,
+  //         implemented,
+  //         images,
+  //       } = node.data.target.fields
+  //       const project = {
+  //         name: name["en-US"],
+  //         slug: slug["en-US"],
+  //         city: city["en-US"],
+  //         author: author["en-US"],
+  //         implemented: implemented["en-US"],
+  //         images: images["en-US"],
+  //       }
+  //       console.log(project)
+
+  //       return <Project project={project} />
+  //     },
+  //   },
+  // }
 
   return (
     <Layout>
@@ -99,11 +112,17 @@ const Template = ({ data }) => {
           </Row>
         )}
 
-        <Row>
-          <Col xs={12}>
-            <h3>Схожі проекти:</h3>
-          </Col>
-        </Row>
+        {/* {otherProjects && (
+          <Row>
+            <Col xs={12}>
+              <h3>Схожі проекти:</h3>
+            </Col>
+            {documentToReactComponents(
+              otherProjects.json,
+              optionsOtherProjects
+            )}
+          </Row>
+        )} */}
 
         <AniLink fade to="/projects" className="btn-primary">
           Назад до проектів
@@ -126,6 +145,9 @@ export const query = graphql`
         fluid {
           ...GatsbyContentfulFluid
         }
+      }
+      otherProjects {
+        json
       }
     }
   }
