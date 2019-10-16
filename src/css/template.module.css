@@ -47,6 +47,10 @@
   margin-bottom: 1rem;
 }
 
+.other-projects {
+  margin-bottom: 2rem;
+}
+
 @media (min-width: 992px) {
   .top-row {
     margin-bottom: 2rem;

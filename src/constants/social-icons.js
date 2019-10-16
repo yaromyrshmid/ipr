@@ -12,6 +12,6 @@ export default [
   },
   {
     icon: <FaInstagram />,
-    url: "https://www.facebook.com/spatialdevelopment",
+    url: "https://www.instagram.com/p/BX3EHwAAs35/",
   },
 ]

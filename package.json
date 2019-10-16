@@ -33,6 +33,7 @@
     "gatsby-transformer-sharp": "^2.2.22",
     "gsap": "^2.1.3",
     "react": "^16.10.2",
+    "react-before-after-slider": "^1.0.4",
     "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.10.2",
     "react-fullscreen-image": "0.0.3",

@@ -13,6 +13,7 @@ const getProjects = graphql`
           author
           contentful_id
           implemented
+          category
           images {
             fluid(quality: 90, maxWidth: 540) {
               ...GatsbyContentfulFluid

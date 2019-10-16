@@ -79,6 +79,18 @@ a:hover {
   background: transparent;
   color: var(--primaryColor);
 }
+.btn-active {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  color: var(--primaryColor);
+  padding: 0.9rem 1.6rem;
+  display: inline-block;
+  transition: var(--mainTransition);
+  cursor: pointer;
+  background: var(--mainWhite);
+  border: 2px solid var(--primaryColor);
+}
 /* .gatsby-image-wrapper {
   max-height: 600px;
   box-shadow: var(--lightShadow);
