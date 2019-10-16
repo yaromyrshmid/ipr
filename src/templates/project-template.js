@@ -38,31 +38,33 @@ const Template = ({ data }) => {
       "embedded-entry-block": node => {
         let width = 0
         let height = 0
-        if (window.innerWidth > 1200) {
-          console.log(window.innerWidth)
-          width = 1110
-          height = 624
-        } else if (window.innerWidth > 992) {
-          width = 930
-          height = 523
-        } else if (window.innerWidth > 768) {
-          width = 690
-          height = 388
-        } else if (window.innerWidth > 576) {
-          width = 510
-          height = 287
-        } else if (window.innerWidth > 500) {
-          width = 470
-          height = 264
-        } else if (window.innerWidth > 400) {
-          width = 370
-          height = 208
-        } else if (window.innerWidth > 300) {
-          width = 270
-          height = 152
-        } else {
-          width = 200
-          height = 113
+        if (window) {
+          if (window.innerWidth > 1200) {
+            console.log(window.innerWidth)
+            width = 1110
+            height = 624
+          } else if (window.innerWidth > 992) {
+            width = 930
+            height = 523
+          } else if (window.innerWidth > 768) {
+            width = 690
+            height = 388
+          } else if (window.innerWidth > 576) {
+            width = 510
+            height = 287
+          } else if (window.innerWidth > 500) {
+            width = 470
+            height = 264
+          } else if (window.innerWidth > 400) {
+            width = 370
+            height = 208
+          } else if (window.innerWidth > 300) {
+            width = 270
+            height = 152
+          } else {
+            width = 200
+            height = 113
+          }
         }
         return (
           <span>
