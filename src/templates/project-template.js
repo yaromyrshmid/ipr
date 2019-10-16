@@ -38,9 +38,8 @@ const Template = ({ data }) => {
       "embedded-entry-block": node => {
         let width = 0
         let height = 0
-        if (window) {
+        if (typeof window !== "undefined") {
           if (window.innerWidth > 1200) {
-            console.log(window.innerWidth)
             width = 1110
             height = 624
           } else if (window.innerWidth > 992) {
@@ -65,23 +64,28 @@ const Template = ({ data }) => {
             width = 200
             height = 113
           }
+
+          return (
+            <span>
+              <BeforeAfterSlider
+                before={
+                  node.data.target.fields.images["en-US"][0].fields.file[
+                    "en-US"
+                  ].url
+                }
+                after={
+                  node.data.target.fields.images["en-US"][1].fields.file[
+                    "en-US"
+                  ].url
+                }
+                width={width}
+                height={height}
+              />
+            </span>
+          )
+        } else {
+          return null
         }
-        return (
-          <span>
-            <BeforeAfterSlider
-              before={
-                node.data.target.fields.images["en-US"][0].fields.file["en-US"]
-                  .url
-              }
-              after={
-                node.data.target.fields.images["en-US"][1].fields.file["en-US"]
-                  .url
-              }
-              width={width}
-              height={height}
-            />
-          </span>
-        )
       },
     },
   }
