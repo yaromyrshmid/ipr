@@ -9,7 +9,7 @@ import SEO from "../components/SEO"
 const error = () => {
   return (
     <Layout>
-      <SEO title="404" />
+      <SEO title="404" description='Сторінки не знайдено'/>
       <header className={styles.error}>
         <Banner title="Сторінки не знайдено">
           <AniLink fade to="/" className="btn-white">

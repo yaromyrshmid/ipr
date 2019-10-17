@@ -34,7 +34,7 @@ const Project = ({ project }) => {
         <article className={styles.project}>
           {implemented && (
             <span className={styles.label}>
-              <span className={styles.labelText}>реалізовано</span>
+              <span className={styles.labelText}>{implemented}</span>
             </span>
           )}
           <div className={styles.imgContainer}>

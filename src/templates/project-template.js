@@ -12,6 +12,7 @@ import ImageWithZoom from "../components/ImageWithZoom"
 import styles from "../css/template.module.css"
 import Project from "../components/Projects/Project"
 import SEO from "../components/SEO"
+import Partner from "../components/Projects/Partner"
 
 const Template = ({ data }) => {
   const {
@@ -19,6 +20,7 @@ const Template = ({ data }) => {
     city,
     author,
     description: { json },
+    partners,
     images,
   } = data.project
 
@@ -89,10 +91,24 @@ const Template = ({ data }) => {
       },
     },
   }
+  const optionsPartners = {
+    renderNode: {
+      "embedded-entry-block": node => {
+        const partner = {
+          name: node.data.target.fields.name["en-US"],
+          link: node.data.target.fields.link
+            ? node.data.target.fields.link["en-US"]
+            : null,
+          logo: node.data.target.fields.logo["en-US"].fields.file["en-US"].url,
+        }
+        return <Partner partner={partner} />
+      },
+    },
+  }
 
   return (
     <Layout>
-      <SEO title={name} />
+      <SEO title={name} description={`Проект Інституту просторового розвитку ${name}`}/>
       <Container className={styles.template}>
         <Row className={styles.topRow}>
           <Col lg={7}>
@@ -117,9 +133,10 @@ const Template = ({ data }) => {
             </div>
           </Col>
         </Row>
-        <Row>
+        <Row className={styles.richText}>
           <Col>{documentToReactComponents(json, options)}</Col>
         </Row>
+
         {projectImages.length > 0 && (
           <Row className={styles.gallery}>
             <Col xs={12}>
@@ -135,6 +152,15 @@ const Template = ({ data }) => {
           </Row>
         )}
 
+        {partners && (
+          <Row className={styles.block}>
+            <Col xs={12}>
+              <h3>Партнери:</h3>
+            </Col>
+            {documentToReactComponents(partners.json, optionsPartners)}
+          </Row>
+        )}
+
         {(data.project.reference || data.referenced.edges.length > 0) && (
           <Row>
             <Col xs={12}>
@@ -142,7 +168,7 @@ const Template = ({ data }) => {
             </Col>
           </Row>
         )}
-        <Row className={styles.otherProjects}>
+        <Row className={styles.block}>
           {/* Creating projects referenced by this project */}
           {data.project.reference &&
             data.project.reference.map(project => {
@@ -179,6 +205,9 @@ export const query = graphql`
       city
       author
       description {
+        json
+      }
+      partners {
         json
       }
       images {

@@ -15,7 +15,8 @@ const aboutus = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Про нас" />
+      <SEO title="Про нас" description='Львівське комунальне підприємство
+"Інститут просторового розвитку" здійснює проектування вулиць, доріг, громадських просторів, парків, об’єктів житлового та господарського призначення'/>
       <StyledHero img={data.hero.childImageSharp.fluid} />
       <Container className={styles.template}>
         <Row className={styles.aboutCompany}>

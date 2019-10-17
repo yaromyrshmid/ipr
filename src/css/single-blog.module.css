@@ -3,6 +3,12 @@
   padding-bottom: 3rem;
 }
 
+.img-container {
+  max-height: 390px;
+  overflow: hidden;
+  box-shadow: var(--lightShadow);
+}
+
 .image {
   box-shadow: var(--lightShadow);
 }
@@ -26,6 +32,37 @@
 .title-wrapper h5 {
   color: var(--primaryColor);
   margin-bottom: 0.3rem;
+}
+
+.richText h4 {
+  margin-bottom: 1rem;
+}
+
+.richText h5 {
+  margin-bottom: 0.5rem;
+}
+
+.richText p {
+  margin-bottom: 1rem;
+}
+
+.richText a {
+  color: var(--primaryColor);
+}
+
+.richText blockquote {
+  margin-left: 2rem;
+  font-style: italic;
+  color: var(--primaryColor);
+}
+
+.richText ol,
+.richText ul {
+  margin-left: 2rem;
+}
+
+.other-posts {
+  margin-bottom: 2rem;
 }
 
 @media (min-width: 992px) {

@@ -3,6 +3,12 @@
   padding-bottom: 3rem;
 }
 
+.img-container {
+  max-height: 390px;
+  overflow: hidden;
+  box-shadow: var(--lightShadow);
+}
+
 .title-wrapper {
   display: flex;
   flex-direction: column;
@@ -39,6 +45,33 @@
   text-transform: capitalize;
 }
 
+.richText h4 {
+  margin-bottom: 1rem;
+}
+
+.richText h5 {
+  margin-bottom: 0.5rem;
+}
+
+.richText p {
+  margin-bottom: 1rem;
+}
+
+.richText a {
+  color: var(--primaryColor);
+}
+
+.richText blockquote {
+  margin-left: 2rem;
+  font-style: italic;
+  color: var(--primaryColor);
+}
+
+.richText ol,
+.richText ul {
+  margin-left: 2rem;
+}
+
 .gallery {
   margin-top: 1rem;
   margin-bottom: 2rem;
@@ -47,7 +80,7 @@
   margin-bottom: 1rem;
 }
 
-.other-projects {
+.block {
   margin-bottom: 2rem;
 }
 

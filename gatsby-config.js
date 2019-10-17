@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: "Інститут просторового розвитку",
-    description: "Lorem ipsum dolor sit amet.",
+    description: "Львівське комунальне підприємство Інститут просторового розвитку здійснює проектування вулиць, доріг, громадських просторів, парків, об’єктів житлового та господарського призначення",
     author: "yaromyr.shmid",
     twitterUsername: "@johndoe",
     image: "/defaultBcg.jpeg",

@@ -12,7 +12,8 @@ import SEO from "../components/SEO"
 
 export default ({ data }) => (
   <Layout>
-    <SEO title="Головна" description="this is description" />
+    <SEO title="Головна" description='Львівське комунальне підприємство
+"Інститут просторового розвитку" здійснює проектування вулиць, доріг, громадських просторів, парків, об’єктів житлового та господарського призначення' />
     <StyledHero home={true} img={data.defaultBcg.childImageSharp.fluid}>
       <Banner
         title="Проектування"

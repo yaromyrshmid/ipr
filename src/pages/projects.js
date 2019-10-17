@@ -9,7 +9,7 @@ import SEO from "../components/SEO"
 const projects = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Проекти" />
+      <SEO title="Проекти" description="Проекти вулиць, доріг, громадських просторів, парків, об’єктів житлового та господарського призначення від Інституту просторового розвитку"/>
       <StyledHero img={data.defaultBcg.childImageSharp.fluid} />
       <Projects />
     </Layout>

@@ -8,6 +8,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import Layout from "../components/Layout"
 import styles from "../css/single-blog.module.css"
 import SEO from "../components/SEO"
+import BlogCard from "../components/Blog/BlogCard"
 
 const Blog = ({ data }) => {
   const {
@@ -30,28 +31,12 @@ const Blog = ({ data }) => {
           />
         )
       },
-      // "embedded-entry-block": node => {
-      //   console.log(node.data.target.fields)
-
-      //   const { title, image, text } = node.data.target.fields
-      //   return (
-      //     <div>
-      //       <h1>other post: {title["en-US"]}</h1>
-      //       <img
-      //         width="400"
-      //         src={image["en-US"].fields.file["en-US"].url}
-      //         alt="other post image"
-      //       />
-      //       {documentToReactComponents(text["en-US"])}
-      //     </div>
-      //   )
-      // },
     },
   }
 
   return (
     <Layout>
-      <SEO title={name} />
+      <SEO title={name} description={`Пост ${name}`}/>
       <Container className={styles.template}>
         <Row className={styles.topRow}>
           <Col lg={7}>
@@ -75,14 +60,36 @@ const Blog = ({ data }) => {
             </div>
           </Col>
         </Row>
-        <Row>
+        <Row className={styles.richText}>
           <Col>{documentToReactComponents(json, options)}</Col>
         </Row>
-        <Row>
-          <Col xs={12}>
-            <h3>Схожі пости:</h3>
-          </Col>
+
+        {(data.post.reference || data.referenced.edges.length > 0) && (
+          <Row>
+            <Col xs={12}>
+              <h3>Схожі прости:</h3>
+            </Col>
+          </Row>
+        )}
+        <Row className={styles.otherPosts}>
+          {/* Creating posts referenced by this post */}
+          {data.post.reference &&
+            data.post.reference.map(post => {
+              return <BlogCard key={post.contentful_id} post={post} />
+            })}
+          {/* Creating posts that reference this post */}
+          {data.referenced.edges.length > 0 &&
+            data.referenced.edges.map(post => {
+              let temp = null
+              post.node.name !== name
+                ? (temp = (
+                    <BlogCard key={post.node.contentful_id} post={post.node} />
+                  ))
+                : (temp = null)
+              return temp
+            })}
         </Row>
+
         <AniLink fade to="/blog" className="btn-primary">
           Усі пости
         </AniLink>
@@ -104,6 +111,36 @@ export const query = graphql`
       }
       post {
         json
+      }
+      reference {
+        createdAt(formatString: "DD/MM/YYYY")
+        slug
+        contentful_id
+        name
+        author
+        image {
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+        }
+      }
+    }
+    referenced: allContentfulPosts(
+      filter: { reference: { elemMatch: { slug: { eq: $slug } } } }
+    ) {
+      edges {
+        node {
+          createdAt(formatString: "DD/MM/YYYY")
+          name
+          slug
+          author
+          contentful_id
+          image {
+            fluid(maxWidth: 600) {
+              ...GatsbyContentfulFluid
+            }
+          }
+        }
       }
     }
   }

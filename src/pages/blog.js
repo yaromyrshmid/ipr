@@ -9,7 +9,7 @@ import SEO from "../components/SEO"
 const blog = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Блог" />
+      <SEO title="Блог" description="Статті та пости на тему сучасного проектування вулиць, доріг, громадських просторів, парків, об’єктів житлового та господарського призначення від Інституту просторового розвитку"/>
       <StyledHero img={data.blogBcg.childImageSharp.fluid} />
       <BlogList />
     </Layout>

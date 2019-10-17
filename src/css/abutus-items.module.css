@@ -22,8 +22,8 @@
 }
 
 .info h4,
-h5,
-a {
+.info h5,
+.info a {
   margin-bottom: 0.3rem;
 }
 
