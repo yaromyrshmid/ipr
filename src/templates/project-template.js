@@ -8,7 +8,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import BeforeAfterSlider from "react-before-after-slider"
 
 import Layout from "../components/Layout"
-import ImageWithZoom from "../components/Projects/ImageWithZoom"
+import Gallery from "../components/Projects/Gallery"
 import styles from "../css/template.module.css"
 import Project from "../components/Projects/Project"
 import SEO from "../components/SEO"
@@ -143,16 +143,7 @@ const Template = ({ data }) => {
           <Col>{documentToReactComponents(json, options)}</Col>
         </Row>
 
-        {projectImages.length > 0 && (
-          <Row className={styles.gallery}>
-            <Col xs={12}>
-              <h3>Галерея:</h3>
-            </Col>
-            {projectImages.map((item, index) => {
-              return <ImageWithZoom key={index} fluid={item.fluid} />
-            })}
-          </Row>
-        )}
+        <Gallery projectImages={projectImages} />
 
         {partners && (
           <Row className={styles.block}>

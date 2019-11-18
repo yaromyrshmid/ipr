@@ -1,0 +1,81 @@
+.image {
+  box-shadow: var(--lightShadow);
+}
+
+.modal-image-container {
+  width: 80vw;
+}
+
+.modal-image-container .image {
+  box-shadow: none;
+}
+
+.modalstyle {
+  max-width: 1200;
+}
+
+.gallery {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.gallery-image {
+  margin-bottom: 1rem;
+}
+
+.arrowContainer {
+  height: 100%;
+  width: 90px;
+  position: absolute;
+  top: 0px;
+}
+
+.arrow {
+  font-size: 2rem;
+  color: var(--mainWhite);
+  transition: var(--mainTransition);
+  top: 47%;
+}
+
+.arrow:hover {
+  color: var(--primaryColor);
+  transition: var(--mainTransition);
+}
+
+.arrowLeft {
+  left: 0px;
+}
+
+.arrowLeft .arrow {
+  position: absolute;
+  left: 0px;
+  margin-left: 2rem;
+}
+
+.arrowRight {
+  right: 0px;
+}
+
+.arrowRight .arrow {
+  position: absolute;
+  right: 0px;
+  margin-right: 2rem;
+}
+
+@media (min-width: 576px) {
+  .modal-image-container {
+    width: 85vw;
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-image-container {
+    width: 85vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal-image-container {
+    width: 1140px;
+  }
+}
