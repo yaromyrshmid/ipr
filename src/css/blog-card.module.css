@@ -48,13 +48,10 @@
   padding: 1rem;
   min-height: 5rem;
 }
-.footer h4,
-h6 {
-  margin-bottom: 0;
-}
 
 .footer h4 {
   letter-spacing: 1.3px;
+  margin-bottom: 0.3rem;
   overflow: hidden;
 }
 
@@ -64,6 +61,7 @@ h6 {
   text-transform: uppercase;
   min-height: 2.3rem;
   overflow: hidden;
+  margin-bottom: 0;
 }
 
 .label {

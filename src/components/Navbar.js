@@ -6,7 +6,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import styles from "../css/navbar.module.css"
 import links from "../constants/links"
 import socialIcons from "../constants/social-icons"
-import logo from "../images/logo.jpg"
+import logo from "../images/logo.png"
 
 const Navbar = () => {
   const [isOpen, setNav] = useState(false)

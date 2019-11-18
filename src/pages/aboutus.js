@@ -6,17 +6,18 @@ import Image from "gatsby-image"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import StyledHero from "../components/StyledHero"
-import TeamMember from "../components/AboutUs/TeamMember"
+import Team from "../components/AboutUs/Team"
 import Document from "../components/AboutUs/Document"
 import styles from "../css/aboutus.module.css"
 
 const aboutus = ({ data }) => {
-  const [boss, ...teamMembers] = data.teamMembers.edges
-
   return (
     <Layout>
-      <SEO title="Про нас" description='Львівське комунальне підприємство
-"Інститут просторового розвитку" здійснює проектування вулиць, доріг, громадських просторів, парків, об’єктів житлового та господарського призначення'/>
+      <SEO
+        title="Про нас"
+        description='Львівське комунальне підприємство
+"Інститут просторового розвитку" здійснює проектування вулиць, доріг, громадських просторів, парків, об’єктів житлового та господарського призначення'
+      />
       <StyledHero img={data.hero.childImageSharp.fluid} />
       <Container className={styles.template}>
         <Row className={styles.aboutCompany}>
@@ -50,20 +51,7 @@ const aboutus = ({ data }) => {
             <h3>Команда:</h3>
           </Col>
         </Row>
-        <Row>
-          <Col xs={12} lg={6}>
-            <TeamMember node={boss.node} />
-          </Col>
-        </Row>
-        <Row>
-          {teamMembers.map(item => {
-            return (
-              <Col xs={12} lg={6} key={item.node.contentful_id}>
-                <TeamMember node={item.node} />
-              </Col>
-            )
-          })}
-        </Row>
+        <Team teamMembers={data.teamMembers.edges} />
         <Row>
           <Col xs={12}>
             <h3>Нормативні документи:</h3>
@@ -71,7 +59,6 @@ const aboutus = ({ data }) => {
         </Row>
         <Row>
           {data.documents.edges.map(item => {
-            console.log(item)
             return (
               <Col xs={12} sm={6} lg={4} key={item.node.contentful_id}>
                 <Document node={item.node} />
@@ -90,8 +77,8 @@ export const query = graphql`
   query {
     hero: file(relativePath: { eq: "aboutus.jpg" }) {
       childImageSharp {
-        fluid(quality: 90, maxWidth: 4160) {
-          ...GatsbyImageSharpFluid_withWebp
+        fluid(quality: 90, maxWidth: 3000) {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }
@@ -115,6 +102,8 @@ export const query = graphql`
               ...GatsbyContentfulFluid
             }
           }
+          department
+          head
         }
       }
     }

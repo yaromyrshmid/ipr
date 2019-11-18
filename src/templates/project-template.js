@@ -8,7 +8,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import BeforeAfterSlider from "react-before-after-slider"
 
 import Layout from "../components/Layout"
-import ImageWithZoom from "../components/ImageWithZoom"
+import ImageWithZoom from "../components/Projects/ImageWithZoom"
 import styles from "../css/template.module.css"
 import Project from "../components/Projects/Project"
 import SEO from "../components/SEO"
@@ -29,12 +29,15 @@ const Template = ({ data }) => {
     renderNode: {
       "embedded-asset-block": node => {
         return (
-          <img
-            width="100%"
-            src={node.data.target.fields.file["en-US"].url}
-            className={styles.image}
-            alt="project"
-          />
+          <>
+            <img
+              width="100%"
+              src={node.data.target.fields.file["en-US"].url}
+              className={styles.image}
+              alt="project"
+            />
+            <p />
+          </>
         )
       },
       "embedded-entry-block": node => {
@@ -108,7 +111,10 @@ const Template = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={name} description={`Проект Інституту просторового розвитку ${name}`}/>
+      <SEO
+        title={name}
+        description={`Проект Інституту просторового розвитку ${name}`}
+      />
       <Container className={styles.template}>
         <Row className={styles.topRow}>
           <Col lg={7}>
@@ -143,11 +149,7 @@ const Template = ({ data }) => {
               <h3>Галерея:</h3>
             </Col>
             {projectImages.map((item, index) => {
-              return (
-                <Col key={index} xs={12} md={6} className={styles.galleryImage}>
-                  <ImageWithZoom fluid={item.fluid} />
-                </Col>
-              )
+              return <ImageWithZoom key={index} fluid={item.fluid} />
             })}
           </Row>
         )}

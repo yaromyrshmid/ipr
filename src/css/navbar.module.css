@@ -7,9 +7,8 @@
 }
 
 .logo {
-  width: 60px;
-  height: 60px;
-  margin: auto 0;
+  height: 100px;
+  margin: auto 0.3rem auto 0;
 }
 
 .brand-block {

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Exo+2|PT+Sans&display=swap&subset=cyrillic-ext");
 
 :root {
-  --primaryColor: #037ad6;
+  --primaryColor: #017ad5;
   --mainWhite: #fff;
   --offWhite: #f7f7f7;
   --mainBlack: #222;
@@ -49,7 +49,7 @@ a:hover {
 }
 .defaultHero {
   min-height: calc(100vh - 92px);
-  background: linear-gradient(rgba(3, 122, 214, 0.7), rgba(0, 0, 0, 0.7));
+  background: linear-gradient(rgba(3, 122, 213, 0.7), rgba(0, 0, 0, 0.7));
   display: flex;
   justify-content: center;
   align-items: center;

@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Image from "gatsby-image"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { MARKS } from "@contentful/rich-text-types"
 import { Container, Row, Col } from "react-bootstrap"
 
 import Layout from "../components/Layout"
@@ -15,9 +16,11 @@ const Blog = ({ data }) => {
     name,
     createdAt,
     author,
+    position,
     image,
     post: { json },
   } = data.post
+  console.log(data)
 
   const options = {
     renderNode: {
@@ -32,11 +35,19 @@ const Blog = ({ data }) => {
         )
       },
     },
+    renderMark: {
+      [MARKS.CODE]: embedded => (
+        <span
+          className={styles.embeddedVideo}
+          dangerouslySetInnerHTML={{ __html: embedded }}
+        />
+      ),
+    },
   }
 
   return (
     <Layout>
-      <SEO title={name} description={`Пост ${name}`}/>
+      <SEO title={name} description={`Пост ${name}`} />
       <Container className={styles.template}>
         <Row className={styles.topRow}>
           <Col lg={7}>
@@ -54,7 +65,10 @@ const Blog = ({ data }) => {
             <div>
               <h3>{name}</h3>
               <br />
-              <h6>Автор: {author}</h6>
+              <h6>
+                Автор: {author}
+                {position && <>, {position}</>}
+              </h6>
               <br />
               <h5 className={styles.date}>{createdAt}</h5>
             </div>
@@ -65,7 +79,7 @@ const Blog = ({ data }) => {
         </Row>
 
         {(data.post.reference || data.referenced.edges.length > 0) && (
-          <Row>
+          <Row className={styles.otherPostsTitle}>
             <Col xs={12}>
               <h3>Схожі прости:</h3>
             </Col>
@@ -104,6 +118,7 @@ export const query = graphql`
       createdAt(formatString: "DD/MM/YYYY")
       name
       author
+      position
       image {
         fluid {
           ...GatsbyContentfulFluid

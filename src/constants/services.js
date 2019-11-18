@@ -1,23 +1,24 @@
 import React from "react"
-import { FaWallet, FaTree, FaSocks } from "react-icons/fa"
+// import { FaWallet, FaTasks, FaSocks, FaProjectDiagram } from "react-icons/fa"
+import { GiPlagueDoctorProfile, GiQuillInk, GiBookPile } from "react-icons/gi"
 
 export default [
   {
-    icon: <FaWallet />,
+    icon: <GiBookPile />,
     title: "проектування",
     text:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati, earum. ",
+      "Містобудівні, архітектурні та ландшафтні проектно-дослідницькі роботи та послуги",
   },
   {
-    icon: <FaTree />,
-    title: "консультування",
+    icon: <GiQuillInk />,
+    title: "планування",
     text:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati, earum. ",
+      "Розробка генеральних планів мікрорайонів, районів, населених пунктів та проектів детального планування",
   },
   {
-    icon: <FaSocks />,
-    title: "в*язання",
+    icon: <GiPlagueDoctorProfile />,
+    title: "консалтинг",
     text:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati, earum. Lorem ipsum, dolor sit",
+      "Напрацювання рішень для реалізації заходів та планів сталого розвитку міст",
   },
 ]

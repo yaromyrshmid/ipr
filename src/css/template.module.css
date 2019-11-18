@@ -41,10 +41,6 @@
   margin-right: 0.5rem;
 }
 
-.template h4 {
-  text-transform: capitalize;
-}
-
 .richText h4 {
   margin-bottom: 1rem;
 }
@@ -75,9 +71,6 @@
 .gallery {
   margin-top: 1rem;
   margin-bottom: 2rem;
-}
-.gallery-image {
-  margin-bottom: 1rem;
 }
 
 .block {

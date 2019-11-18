@@ -22,7 +22,7 @@ const TeamMember = props => {
             <h4>{props.node.name}</h4>
             <h5>{props.node.position}</h5>
             <a href={`mailto:${props.node.email}`}>{props.node.email}</a>
-            <br />
+            {props.node.email && <br />}
             <a href={`tel:${props.node.phone}`}>{props.node.phone}</a>
           </div>
         </Col>

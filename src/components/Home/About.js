@@ -40,12 +40,12 @@ const About = () => {
           <Col md={6}>
             <article className={styles.aboutInfo}>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,
-                eos!
+                Команда фахівців, що проектують безпечні, зручні для всіх міські
+                простори за кращими європейськими зразками.
               </p>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Consequuntur accusamus deleniti assumenda.
+                Підприємство комунальної форми власності, що розташоване у
+                Львові та здійснює діяльність на території України.
               </p>
               <AniLink
                 fade

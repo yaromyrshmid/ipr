@@ -1,21 +1,35 @@
 import React, { useState } from "react"
 import Image from "gatsby-image"
 
-import Modal from "react-responsive-modal"
+// import Modal from "react-responsive-modal"
 
-import styles from "../css/imageWithZoom.module.css"
+import Modal from "../Modal"
+import styles from "../../css/imageWithZoom.module.css"
+import { Col } from "react-bootstrap"
 
 const ImageWithZoom = props => {
   const [showModal, setShowModal] = useState(false)
+  const [image, setImage] = useState(null)
 
-  const toggleModal = () => {
+  const toggleModal = (image = null) => {
+    setImage(image)
     setShowModal(showModal => !showModal)
   }
 
+  // const closeModal = () => {
+
+  // }
+
   return (
-    <div onClick={toggleModal}>
+    <Col
+      onClick={() => toggleModal(props.fluid)}
+      xs={12}
+      md={6}
+      className={styles.galleryImage}
+    >
       <Image fluid={props.fluid} alt="project image" className={styles.image} />
-      <Modal
+      <Modal showModal={showModal} fluid={image} toggleModal={toggleModal} />
+      {/* <Modal
         styles={{
           modal: {
             maxWidth: "1200px",
@@ -34,8 +48,8 @@ const ImageWithZoom = props => {
             className={styles.image}
           />
         </div>
-      </Modal>
-    </div>
+      </Modal> */}
+    </Col>
   )
 }
 
