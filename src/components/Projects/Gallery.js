@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Row, Col } from "react-bootstrap"
 
 import Modal from "./Modal"
@@ -7,8 +7,24 @@ import styles from "../../css/gallery.module.css"
 
 const Gallery = props => {
   const [showModal, setShowModal] = useState(false)
-  const [activeImage, setActiveImage] = useState(0)
-
+  const [activeImage, setActiveImage] = useState(null)
+  const keyEvents = event => {
+    if (event.code === "ArrowLeft") {
+      prevImage()
+    } else if (event.code === "ArrowRight") {
+      nextImage()
+    }
+  }
+  useEffect(() => {
+    if (showModal) {
+      if (document) {
+        document.addEventListener("keydown", keyEvents)
+      }
+    }
+    return () => {
+      document.removeEventListener("keydown", keyEvents)
+    }
+  }, [activeImage])
   const closeModal = () => {
     setShowModal(false)
   }
@@ -50,9 +66,13 @@ const Gallery = props => {
           })}
           <Modal
             showModal={showModal}
-            fluid={props.projectImages[activeImage].fluid}
+            fluid={
+              props.projectImages[activeImage]
+                ? props.projectImages[activeImage].fluid
+                : null
+            }
             closeModal={closeModal}
-            prevImage={prevImage}
+            prevImage={() => prevImage()}
             nextImage={nextImage}
             showLeftControl={activeImage === 0 ? false : true}
             showRightControl={

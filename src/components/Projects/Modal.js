@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 import Modal from "react-responsive-modal"
 import Image from "gatsby-image"
 import { FiArrowRightCircle, FiArrowLeftCircle } from "react-icons/fi"
@@ -30,7 +30,7 @@ const ModalExport = props => {
       </div>
       {props.showLeftControl && (
         <span
-          onClick={props.prevImage}
+          onClick={() => props.prevImage()}
           className={`${styles.arrowContainer} ${styles.arrowLeft}`}
         >
           <FiArrowLeftCircle className={styles.arrow} />

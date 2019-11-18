@@ -74,12 +74,12 @@ const Template = ({ data }) => {
             <span>
               <BeforeAfterSlider
                 before={
-                  node.data.target.fields.images["en-US"][0].fields.file[
+                  node.data.target.fields.images["en-US"][1].fields.file[
                     "en-US"
                   ].url
                 }
                 after={
-                  node.data.target.fields.images["en-US"][1].fields.file[
+                  node.data.target.fields.images["en-US"][0].fields.file[
                     "en-US"
                   ].url
                 }
