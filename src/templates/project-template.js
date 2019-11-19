@@ -210,7 +210,7 @@ export const query = graphql`
       }
       images {
         fluid {
-          ...GatsbyContentfulFluid
+          ...GatsbyContentfulFluid_tracedSVG
         }
       }
       reference {
@@ -222,7 +222,7 @@ export const query = graphql`
         implemented
         images {
           fluid {
-            ...GatsbyContentfulFluid
+            ...GatsbyContentfulFluid_tracedSVG
           }
         }
       }
@@ -240,7 +240,7 @@ export const query = graphql`
           implemented
           images {
             fluid(maxWidth: 600) {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }
