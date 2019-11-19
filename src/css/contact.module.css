@@ -94,3 +94,9 @@
   color: var(--mainWhite);
   border-color: var(--darkGrey);
 }
+
+.submit:disabled {
+  background: var(--mainWhite);
+  color: var(--darkGrey);
+  border-color: var(--darkGrey);
+}

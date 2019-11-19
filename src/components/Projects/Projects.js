@@ -16,7 +16,7 @@ const getProjects = graphql`
           category
           images {
             fluid(quality: 90, maxWidth: 540) {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }

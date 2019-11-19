@@ -34,7 +34,7 @@ const Contact = () => {
                 <a href="tel:+380322975110">+38 (032) 297 51 10 </a>
                 <br />
                 <br />
-                <a href="mailto:email@email.com">email@email.com</a>
+                <a href="mailto:info@ipr-lviv.com">info@ipr-lviv.com</a>
               </h5>
             </div>
           </Col>

@@ -27,7 +27,7 @@ const SEO = ({ title, description, image, pathname }) => {
     twitterUsername,
   } = site.siteMetadata
   const seo = {
-    title: title || siteTitle,
+    title: title ? `${title} | Інститут просторового розвитку` : siteTitle,
     description: description || siteDesc,
     image: image ? `https:${image}` : `${siteUrl}/${siteImage}`,
     url: pathname ? `${siteUrl}/${pathname}/` : siteUrl,
