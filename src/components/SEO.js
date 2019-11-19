@@ -8,10 +8,9 @@ const getData = graphql`
       siteMetadata {
         siteTitle: title
         siteDesc: description
-        author
         siteUrl
         twitterUsername
-        image
+        siteImage: image
       }
     }
   }
@@ -19,6 +18,7 @@ const getData = graphql`
 
 const SEO = ({ title, description, image, pathname }) => {
   const { site } = useStaticQuery(getData)
+
   const {
     siteDesc,
     siteTitle,

@@ -9,7 +9,7 @@ import SEO from "../components/SEO"
 const contact = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Контакти" description='Контакти Львівського комунального підприємства "Інститут просторового розвитку"'/>
+      <SEO title="Контакти" description='Контакти Львівського комунального підприємства "Інститут просторового розвитку"' pathname='contact'/>
       <StyledHero img={data.connectBcg.childImageSharp.fluid} />
       <Contact />
     </Layout>
