@@ -30,7 +30,7 @@ const SEO = ({ title, description, image, pathname }) => {
     title: title || siteTitle,
     description: description || siteDesc,
     image: `https:${image}` || `${siteUrl}/${siteImage}`,
-    url: `${siteUrl}${pathname || "/"}`,
+    url: `${siteUrl}/${pathname || "/"}`,
   }
   return (
     <Helmet title={seo.title} htmlAttributes={{ lang: "uk" }}>
