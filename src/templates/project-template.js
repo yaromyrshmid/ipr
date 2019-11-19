@@ -22,9 +22,11 @@ const Template = ({ data }) => {
     description: { json },
     partners,
     images,
+    slug,
   } = data.project
 
   const [mainImage, ...projectImages] = images
+
   const options = {
     renderNode: {
       "embedded-asset-block": node => {
@@ -113,7 +115,9 @@ const Template = ({ data }) => {
     <Layout>
       <SEO
         title={name}
-        description={`Проект Інституту просторового розвитку ${name}`}
+        description={`Проект Інституту просторового розвитку: ${name}`}
+        image={mainImage.fluid.src}
+        pathname={`projects/${slug}/`}
       />
       <Container className={styles.template}>
         <Row className={styles.topRow}>
@@ -195,6 +199,7 @@ export const query = graphql`
   query($slug: String!) {
     project: contentfulProjects(slug: { eq: $slug }) {
       name
+      slug
       city
       author
       description {

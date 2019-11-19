@@ -53,14 +53,14 @@ const Project = ({ project }) => {
             </Row>
 
             <Row className={styles.info}>
-              <Col>
+              <Col xs={5}>
                 <h4 className={styles.city}>
                   <FaMapMarkerAlt className={styles.icon} />
                   {city}
                 </h4>
               </Col>
 
-              <Col className={styles.details}>
+              <Col xs={7} className={styles.details}>
                 <h6>Автор: {author}</h6>
               </Col>
             </Row>

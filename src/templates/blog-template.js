@@ -19,8 +19,8 @@ const Blog = ({ data }) => {
     position,
     image,
     post: { json },
+    slug,
   } = data.post
-  console.log(data)
 
   const options = {
     renderNode: {
@@ -47,7 +47,12 @@ const Blog = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={name} description={`Пост ${name}`} />
+      <SEO
+        title={name}
+        description={`Пост "${name}"`}
+        image={image.fluid.src}
+        pathname={`blog/${slug}/`}
+      />
       <Container className={styles.template}>
         <Row className={styles.topRow}>
           <Col lg={7}>
@@ -118,6 +123,7 @@ export const query = graphql`
       createdAt(formatString: "DD/MM/YYYY")
       name
       author
+      slug
       position
       image {
         fluid {

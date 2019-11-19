@@ -5,10 +5,11 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: "Інститут просторового розвитку",
-    description: "Львівське комунальне підприємство Інститут просторового розвитку здійснює проектування вулиць, доріг, громадських просторів, парків, об’єктів житлового та господарського призначення",
+    description:
+      "Львівське комунальне підприємство Інститут просторового розвитку здійснює проектування вулиць, доріг, громадських просторів, парків, об’єктів житлового та господарського призначення",
     author: "yaromyr.shmid",
-    twitterUsername: "@johndoe",
-    image: "/defaultBcg.jpeg",
+    twitterUsername: "@yaromyr.shmid",
+    image: "/dvirtseva5.jpg",
     siteUrl: "https://ipr-gatsby.netlify.com",
   },
   plugins: [

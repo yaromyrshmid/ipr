@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import Modal from "react-responsive-modal"
 import Image from "gatsby-image"
 import { FiArrowRightCircle, FiArrowLeftCircle } from "react-icons/fi"

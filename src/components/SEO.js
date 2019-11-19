@@ -17,34 +17,39 @@ const getData = graphql`
   }
 `
 
-const SEO = ({ title, description }) => {
+const SEO = ({ title, description, image, pathname }) => {
   const { site } = useStaticQuery(getData)
   const {
     siteDesc,
     siteTitle,
     siteUrl,
-    image,
+    siteImage,
     twitterUsername,
   } = site.siteMetadata
-
+  const seo = {
+    title: title || siteTitle,
+    description: description || siteDesc,
+    image: image || `${siteUrl}/${siteImage}`,
+    url: `${siteUrl}${pathname || "/"}`,
+  }
   return (
-    <Helmet title={`${title} | ${siteTitle}`} htmlAttributes={{ land: "uk" }}>
-      <meta name="description" content={description || siteDesc} />
-      <meta name="image" content={image} />
+    <Helmet title={seo.title} htmlAttributes={{ lang: "uk" }}>
+      <meta name="description" content={seo.description} />
+      <meta name="image" content={seo.image} />
       {/* facebook card */}
-      <meta property="og:url" content={siteUrl} />
+      <meta property="og:url" content={seo.url} />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content={siteTitle} />
-      <meta property="og:description" content={siteDesc} />
-      <meta property="og:image" content={`${siteUrl}${image}`} />
+      <meta property="og:title" content={seo.title} />
+      <meta property="og:description" content={seo.description} />
+      <meta property="og:image" content={seo.image} />
       <meta property="og:image:width" content="400" />
       <meta property="og:image:height" content="300" />
       {/* twitter card */}
-      <meta name="twitter:card" content="summary_large>image" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={twitterUsername} />
-      <meta name="twitter:title" content={siteTitle} />
-      <meta name="twitter:description" content={siteDesc} />
-      <meta name="twitter:image" content={`${siteUrl}${image}`} />
+      <meta name="twitter:title" content={seo.title} />
+      <meta name="twitter:description" content={seo.description} />
+      <meta name="twitter:image" content={seo.image} />
     </Helmet>
   )
 }
