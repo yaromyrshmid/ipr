@@ -1,17 +1,11 @@
-import React, { useState } from "react"
-import Title from "../Title"
+import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
 
+import Title from "../Title"
 import ContactForm from "./ContactForm"
 import styles from "../../css/contact.module.css"
 
 const Contact = () => {
-  const [formSent, setFormSent] = useState(false)
-
-  const handleSentForm = () => {
-    setFormSent(true)
-  }
-
   return (
     <section className={styles.contact}>
       <Title title="Контакти" />
@@ -46,18 +40,12 @@ const Contact = () => {
           </Col>
         </Row>
       </Container>
-      {formSent ? (
-        <Title title="Дякуємо!" subtitle="Вашу форму надіслано" />
-      ) : (
-        <>
-          <Title title="Напишіть" subtitle="нам" />
-          <Container>
-            <Row>
-              <ContactForm setFormSent={handleSentForm} />
-            </Row>
-          </Container>
-        </>
-      )}
+      <Title title="Напишіть" subtitle="нам" />
+      <Container>
+        <Row>
+          <ContactForm />
+        </Row>
+      </Container>
     </section>
   )
 }

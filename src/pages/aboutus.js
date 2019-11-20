@@ -27,7 +27,7 @@ const aboutus = ({ data }) => {
               <div className={styles.imgContainer}>
                 <Image
                   fluid={data.team.childImageSharp.fluid}
-                  alt="main project image"
+                  alt="team"
                   className={styles.image}
                 />
               </div>

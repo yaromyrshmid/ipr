@@ -30,10 +30,7 @@ const About = () => {
           <Col md={6}>
             <article className={styles.aboutImg}>
               <div className={styles.imgContainer}>
-                <Img
-                  fluid={aboutImage.childImageSharp.fluid}
-                  alt="about us image"
-                />
+                <Img fluid={aboutImage.childImageSharp.fluid} alt="team" />
               </div>
             </article>
           </Col>

@@ -3,7 +3,7 @@ import { Col } from "react-bootstrap"
 
 import styles from "../../css/contact.module.css"
 
-const ContactForm = ({ setFormSent }) => {
+const ContactForm = () => {
   const [formDisabled, setFormDisabled] = useState(true)
   const [nameValid, setNameValid] = useState(false)
   const [emailValid, setEmailValid] = useState(false)
@@ -47,8 +47,7 @@ const ContactForm = ({ setFormSent }) => {
     <Col md={{ span: 10, offset: 1 }} lg={{ span: 6, offset: 3 }}>
       <form
         className={styles.form}
-        // action="https://formspree.io/a@gmail.com"
-        // method="POST"
+        action="/contactsuccess"
         name="contact"
         method="POST"
         data-netlify="true"
@@ -85,12 +84,10 @@ const ContactForm = ({ setFormSent }) => {
             onChange={validateMessage}
           />
         </div>
-        {/* <input type="hidden" name="_next" value="http://localhost:8000/" /> */}
         <input
           type="submit"
           className={styles.submit}
           value="Надіслати"
-          // onClick={setFormSent}
           disabled={formDisabled}
         />
       </form>
