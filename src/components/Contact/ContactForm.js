@@ -53,7 +53,6 @@ const ContactForm = ({ setFormSent }) => {
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        onSubmit={setFormSent}
       >
         <input type="hidden" name="form-name" value="contact" />
         <div>
@@ -91,6 +90,7 @@ const ContactForm = ({ setFormSent }) => {
           type="submit"
           className={styles.submit}
           value="Надіслати"
+          onClick={setFormSent}
           disabled={formDisabled}
         />
       </form>
