@@ -195,7 +195,6 @@ const Template = ({ data }) => {
   )
 }
 
-//trased svg retry
 export const query = graphql`
   query($slug: String!) {
     project: contentfulProjects(slug: { eq: $slug }) {
