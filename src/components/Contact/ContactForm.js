@@ -3,7 +3,7 @@ import { Col } from "react-bootstrap"
 
 import styles from "../../css/contact.module.css"
 
-const ContactForm = () => {
+const ContactForm = ({ setFormSent }) => {
   const [formDisabled, setFormDisabled] = useState(true)
   const [nameValid, setNameValid] = useState(false)
   const [emailValid, setEmailValid] = useState(false)
@@ -53,6 +53,7 @@ const ContactForm = () => {
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
+        onSubmit={setFormSent}
       >
         <input type="hidden" name="form-name" value="contact" />
         <div>
