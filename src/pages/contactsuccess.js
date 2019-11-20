@@ -52,14 +52,14 @@ export const query = graphql`
     connectBcg: file(relativePath: { eq: "contacts.jpg" }) {
       childImageSharp {
         fluid(quality: 90, maxWidth: 4160) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }
     owl: file(relativePath: { eq: "owl.jpg" }) {
       childImageSharp {
         fluid(quality: 90, maxWidth: 800) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }

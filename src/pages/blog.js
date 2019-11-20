@@ -9,7 +9,11 @@ import SEO from "../components/SEO"
 const blog = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Блог" description="Статті та пости на тему сучасного проектування вулиць, доріг, громадських просторів, парків, об’єктів житлового та господарського призначення від Інституту просторового розвитку" pathname='blog' />
+      <SEO
+        title="Блог"
+        description="Статті та пости на тему сучасного проектування вулиць, доріг, громадських просторів, парків, об’єктів житлового та господарського призначення від Інституту просторового розвитку"
+        pathname="blog"
+      />
       <StyledHero img={data.blogBcg.childImageSharp.fluid} />
       <BlogList />
     </Layout>
@@ -23,7 +27,7 @@ export const query = graphql`
     blogBcg: file(relativePath: { eq: "blogBcg.jpeg" }) {
       childImageSharp {
         fluid(quality: 90, maxWidth: 4160) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }
