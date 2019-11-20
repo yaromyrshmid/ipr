@@ -209,7 +209,7 @@ export const query = graphql`
         json
       }
       images {
-        fluid {
+        fluid(maxWidth: 1140) {
           ...GatsbyContentfulFluid_tracedSVG
         }
       }
