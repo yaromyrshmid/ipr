@@ -47,8 +47,11 @@ const ContactForm = () => {
     <Col md={{ span: 10, offset: 1 }} lg={{ span: 6, offset: 3 }}>
       <form
         className={styles.form}
-        action="https://formspree.io/a@gmail.com"
+        // action="https://formspree.io/a@gmail.com"
+        // method="POST"
+        name="contact"
         method="POST"
+        data-netlify="true"
       >
         <div>
           <input
