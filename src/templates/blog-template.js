@@ -127,7 +127,7 @@ export const query = graphql`
       position
       image {
         fluid {
-          ...GatsbyContentfulFluid
+          ...GatsbyContentfulFluid_tracedSVG
         }
       }
       post {
@@ -141,7 +141,7 @@ export const query = graphql`
         author
         image {
           fluid {
-            ...GatsbyContentfulFluid
+            ...GatsbyContentfulFluid_tracedSVG
           }
         }
       }
@@ -158,7 +158,7 @@ export const query = graphql`
           contentful_id
           image {
             fluid(maxWidth: 600) {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }
