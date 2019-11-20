@@ -90,7 +90,7 @@ const ContactForm = ({ setFormSent }) => {
           type="submit"
           className={styles.submit}
           value="Надіслати"
-          onClick={setFormSent}
+          // onClick={setFormSent}
           disabled={formDisabled}
         />
       </form>
