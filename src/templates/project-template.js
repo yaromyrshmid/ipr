@@ -210,7 +210,7 @@ export const query = graphql`
       }
       images {
         fluid {
-          ...GatsbyContentfulFluid
+          ...GatsbyContentfulFluid_tracedSVG
         }
       }
       reference {
