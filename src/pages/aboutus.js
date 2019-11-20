@@ -16,7 +16,8 @@ const aboutus = ({ data }) => {
       <SEO
         title="Про нас"
         description='Львівське комунальне підприємство
-"Інститут просторового розвитку" здійснює проектування вулиць, доріг, громадських просторів, парків, об’єктів житлового та господарського призначення' pathname='aboutus'
+"Інститут просторового розвитку" здійснює проектування вулиць, доріг, громадських просторів, парків, об’єктів житлового та господарського призначення'
+        pathname="aboutus"
       />
       <StyledHero img={data.hero.childImageSharp.fluid} />
       <Container className={styles.template}>
@@ -99,7 +100,7 @@ export const query = graphql`
           contentful_id
           image {
             fluid {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
           department
