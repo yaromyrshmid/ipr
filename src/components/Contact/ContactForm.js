@@ -83,7 +83,7 @@ const ContactForm = () => {
             onChange={validateMessage}
           />
         </div>
-        <input type="hidden" name="_next" value="http://localhost:8000/" />
+        {/* <input type="hidden" name="_next" value="http://localhost:8000/" /> */}
         <input
           type="submit"
           className={styles.submit}
