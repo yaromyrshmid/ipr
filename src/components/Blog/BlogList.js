@@ -18,7 +18,7 @@ const getPosts = graphql`
           contentful_id
           image {
             fluid {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }
