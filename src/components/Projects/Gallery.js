@@ -8,6 +8,7 @@ import styles from "../../css/gallery.module.css"
 const Gallery = props => {
   const [showModal, setShowModal] = useState(false)
   const [activeImage, setActiveImage] = useState(null)
+
   const keyEvents = event => {
     if (event.code === "ArrowLeft") {
       prevImage()
@@ -15,6 +16,7 @@ const Gallery = props => {
       nextImage()
     }
   }
+
   useEffect(() => {
     if (showModal) {
       if (document) {
@@ -25,6 +27,7 @@ const Gallery = props => {
       document.removeEventListener("keydown", keyEvents)
     }
   }, [activeImage])
+
   const closeModal = () => {
     setShowModal(false)
   }

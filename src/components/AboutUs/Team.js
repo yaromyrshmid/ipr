@@ -37,7 +37,9 @@ const Team = ({ teamMembers }) => {
         </div>
       )
     }
+    return null
   })
+
   return (
     <>
       <div>
