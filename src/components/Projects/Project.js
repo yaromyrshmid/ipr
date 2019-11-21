@@ -61,7 +61,9 @@ const Project = ({ project }) => {
               </Col>
 
               <Col xs={7} className={styles.details}>
-                <h6>Автор: {author}</h6>
+                <h6>
+                  Автор{author.includes(",") && "и"}: {author}
+                </h6>
               </Col>
             </Row>
           </div>

@@ -24,7 +24,9 @@ const BlogCard = ({ post }) => {
           </div>
           <div className={styles.footer}>
             <h4>{name}</h4>
-            <h6>Автор: {author}</h6>
+            <h6>
+              Автор{author.includes(",") && "и"}: {author}
+            </h6>
           </div>
         </article>
       </AniLink>

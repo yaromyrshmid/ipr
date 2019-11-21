@@ -69,12 +69,10 @@ const Blog = ({ data }) => {
           <Col lg={5} className={styles.titleWrapper}>
             <div>
               <h3>{name}</h3>
-              <br />
               <h6>
-                Автор: {author}
+                Автор{author.includes(",") && "и"}: {author}
                 {position && <>, {position}</>}
               </h6>
-              <br />
               <h5 className={styles.date}>{createdAt}</h5>
             </div>
           </Col>

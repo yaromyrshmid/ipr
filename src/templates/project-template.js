@@ -139,7 +139,9 @@ const Template = ({ data }) => {
                 <FaMapMarkerAlt className={styles.icon} />
                 {city}
               </h4>
-              <h6>Автор: {author}</h6>
+              <h6>
+                Автор{author.includes(",") && "и"}: {author}
+              </h6>
             </div>
           </Col>
         </Row>
